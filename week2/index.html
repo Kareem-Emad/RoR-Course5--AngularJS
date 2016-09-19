@@ -32,7 +32,7 @@
 
     <!-- To Buy List -->
     <div class="col-md-6" ng-controller='AlreadyBoughtShoppingController as itemReceiver'>
-     <h2>To Buy:</h2>
+     <h2> Already Bought: </h2>
      <ul>
        <li ng-repeat="item in itemReceiver.items">
            {{ item.quantity }} of {{ item.name }} <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span>
@@ -42,7 +42,7 @@
 
     <!-- Already Bought List -->
     <div class="col-md-6" ng-controller='ToBuyShoppingController  as itemBuyer'>
-     <h2>Already Bought:</h2>
+     <h2>To Buy:</h2>
      <ol>
         <li ng-repeat="item in itemBuyer.items">
           buy {{ item.quantity }} of {{ item.name }}
