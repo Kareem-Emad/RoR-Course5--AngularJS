@@ -37,7 +37,7 @@
        <li ng-repeat="item in itemReceiver.items">
            {{ item.quantity }} of {{ item.name }} <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span>
      </ul>
-     <div class="emptyMessage" ng-show="itemReceiver.items.length==5">Everything is bought!</div>
+     <div class="emptyMessage" ng-show="itemReceiver.items.length==0">Nothing bought yet.</div>
     </div>
 
     <!-- Already Bought List -->
@@ -48,7 +48,8 @@
           buy {{ item.quantity }} of {{ item.name }}
           <button class="btn btn-default" ng-click="itemBuyer.buyItem($index);">Buy Item</button>
      </ol>
-     <div class="emptyMessage" ng-show="itemBuyer.items.length==5">Nothing bought yet.</div>
+     <div class="emptyMessage" ng-show="itemBuyer.items.length==0">Everything is bought!</div>
+
     </div>
   </div>
 </div>
