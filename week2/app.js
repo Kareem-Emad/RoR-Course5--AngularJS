@@ -10,7 +10,6 @@ AlreadyBoughtShoppingController.$inject = ['ShoppingListCheckOffService'];
 function AlreadyBoughtShoppingController(ShoppingListCheckOffService) {
   var itemReceiver = this;
   itemReceiver.items = ShoppingListCheckOffService.getToBoughtItems();
-
 }
 
 
