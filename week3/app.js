@@ -31,6 +31,8 @@ function MenuSearchService($http){
     	})
     	.then(function (result) {
     	// process result and only keep items that match
+      if(searchTerm=="")
+        return null;
     	var found=[];
     	var descriptions=result.data.menu_items;
     	for(var i=0;i<descriptions.length;i++){
