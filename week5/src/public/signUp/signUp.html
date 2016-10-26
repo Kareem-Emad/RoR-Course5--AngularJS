@@ -1,0 +1,67 @@
+<div class="container" style="color:orange">
+    <fieldset ng-if="!favoriteDishCtrl.success">
+      <legend style="color:orange">Registration</legend>
+      <form name='regForm' novalidate>
+        <div><label for="formGroupExampleInput">Full Name</label></div>
+        <input style="color:black" type="text" name="firstname" placeholder="First Name"
+          ng-model="reg.user.firstname"
+          required>
+           <input style="color:black" type="text" name="lastname" placeholder="last Name"
+          ng-model="reg.user.lastname"
+          required>
+          <span
+            ng-if="(regForm.firstname.$error.required ||regForm.lastname.$error.require) &&  (regForm.lastname.$touched||regForm.firstname.$touched)")>
+            please , enter your  name fully
+          </span>
+          <br>
+
+        <div class="form-group">
+          <label for="formGroupExampleInput">Email</label>
+          <input type="email" class="form-control" id="formGroupExampleInput"
+           name="email" 
+           placeholder="Email"
+           ng-model="reg.user.email"
+            required>
+        </div>
+
+          <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+
+        <div class="form-group">
+          <label for="formGroupExampleInput">Phone</label>
+          <input type="text" name="phone"  class="form-control" id="formGroupExampleInput" 
+            placeholder="Phone ###-###-####"
+            ng-model="reg.user.phone"
+            pattern="(\d{3})-(\d{3})-(\d{4})">
+        </div>
+
+          <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+          <br>
+         <div class="form-group">
+           <label for="formGroupExampleInput">favorite Dish</label>
+           <input type="text" name="shortname" class="form-control" 
+           id="formGroupExampleInput"
+           placeholder="favorite dish"
+           ng-model="reg.user.shortname"
+           ng-blur="favoriteDishCtrl.retrieveDish(reg.user.shortname)"
+           required
+           >
+         </div>
+         <span ng-if="regForm.shortname.$invalid && regForm.shortname.$touched">
+           enter your favorite dish
+         </span>
+         <br>
+        <button class="btn btn-warning"
+          ng-disabled="regForm.$invalid"
+          ng-click="favoriteDishCtrl.retrieveDish(reg.user.shortname);favoriteDishCtrl.pullPersonalData(reg);">Submit</button>
+
+         
+          <div ng-if="favoriteDishCtrl.status" class="alert alert-danger fade in"> No such menu number exists </div>
+      </form>
+    </fieldset>
+    <h1 ng-if="favoriteDishCtrl.success" class="alert alert-success fade in">Registered successfully</h1>
+</div>

@@ -1,0 +1,42 @@
+<div  class="container">
+	<div ng-if="!receiverCtrl.items">
+		<h1 style="color:orange">We Are Launching Soon !!!</h1>
+		<button ui-sref="public.signUp" class="btn btn-warning btn-lg" style="text-align:center" >
+		  <h3>Sign Up</h3>
+		</button>
+   </div>
+   <div class="row" ng-if="receiverCtrl.items">
+	  	<h1 style="color:orange">Your Personal Data</h1>	
+	  	<div>
+		  	<span><strong>Full Name: <strong></span>
+		  	<span>{{receiverCtrl.personaldata[0]}}</span>
+	  	</div>
+	  	<div>
+	  	  <span><strong>E-mail: <strong></span>
+	  	  <span>{{receiverCtrl.personaldata[1]}}</span>
+	   </div>
+	   <div>
+		  <span><strong>Phone: <strong></span>
+		  <span>{{receiverCtrl.personaldata[2]}}</span>
+	   </div>
+	  	<h2 style="color:orange">Your Favorite Dish</h2>
+	  	<menu-item  menu-item="receiverCtrl.items"></menu-item>
+   </div>
+   
+	<!--
+	<h1 ng-if="!receiverCtrl.items">didn't <span ui-sref="public.signUp">sign up<span> yet? go ahead , do not miss it !!!</h1>
+	<h1 ng-if="receiverCtrl.items">welcome back!!</h1>
+	-->
+
+	
+	<!--
+	<div>title : {{receiverCtrl.items.name}}</div>
+	<div>description : {{receiverCtrl.items.description}}</div>
+	<img ng-if="receiverCtrl.items" width="200" height="200"
+	 ng-src="{{receiverCtrl.basePath}}/images/{{receiverCtrl.items.short_name}}.jpg"
+	 alt="{{receiverCtrl.items.name}}">
+	-->
+	  
+
+
+</div>
